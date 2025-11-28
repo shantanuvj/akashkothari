@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akash Kothari | Mutual Fund Distributor & Financial Advisor</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#0f172a', // Deep Navy
+                            light: '#334155', // Slate
+                            gold: '#ca8a04', // Muted Gold
+                            goldlight: '#fef08a',
+                            bg: '#f8fafc' // Off white
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* Animation classes */
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hide pages by default, active class shows them */
+        .page-section { display: none; }
+        .page-section.active { display: block; }
+    </style>
+</head>
+<body class="font-sans text-slate-700 bg-brand-bg flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-md transition-all duration-300" id="main-header">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" onclick="navigateTo('home')" class="flex flex-col">
+                    <span class="font-serif text-2xl font-bold text-brand-blue tracking-tight">Akash Kothari</span>
+                    <span class="text-xs text-brand-gold font-medium uppercase tracking-widest">Financial Services</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden lg:flex space-x-6">
+                    <button onclick="navigateTo('home')" class="nav-link text-sm font-semibold hover:text-brand-gold transition-colors text-brand-blue">Home</button>
+                    <button onclick="navigateTo('about')" class="nav-link text-sm font-medium hover:text-brand-gold transition-colors text-slate-600">About Us</button>
+                    <button onclick="navigateTo('services')" class="nav-link text-sm font-medium hover:text-brand-gold transition-colors text-slate-600">Our Services</button>
+                    <button onclick="navigateTo('calculators')" class="nav-link text-sm font-medium hover:text-brand-gold transition-colors text-slate-600">Calculators</button>
+                    <button onclick="navigateTo('faq')" class="nav-link text-sm font-medium hover:text-brand-gold transition-colors text-slate-600">FAQ</button>
+                    <button onclick="navigateTo('news')" class="nav-link text-sm font-medium hover:text-brand-gold transition-colors text-slate-600">News & Media</button>
+                    <button onclick="navigateTo('disclosure')" class="nav-link text-sm font-medium hover:text-brand-gold transition-colors text-slate-600">Disclosure</button>
+                    <button onclick="navigateTo('contact')" class="px-5 py-2 bg-brand-blue text-white text-sm font-semibold rounded hover:bg-brand-gold transition-colors shadow-lg">Contact Us</button>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="lg:hidden text-brand-blue focus:outline-none text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="flex flex-col px-4 py-4 space-y-4">
+                <button onclick="navigateTo('home')" class="text-left font-medium text-slate-700 hover:text-brand-gold">Home</button>
+                <button onclick="navigateTo('about')" class="text-left font-medium text-slate-700 hover:text-brand-gold">About Us</button>
+                <button onclick="navigateTo('services')" class="text-left font-medium text-slate-700 hover:text-brand-gold">Our Services</button>
+                <button onclick="navigateTo('calculators')" class="text-left font-medium text-slate-700 hover:text-brand-gold">Financial Calculators</button>
+                <button onclick="navigateTo('faq')" class="text-left font-medium text-slate-700 hover:text-brand-gold">FAQ</button>
+                <button onclick="navigateTo('news')" class="text-left font-medium text-slate-700 hover:text-brand-gold">News & Media</button>
+                <button onclick="navigateTo('disclosure')" class="text-left font-medium text-slate-700 hover:text-brand-gold">Disclosure</button>
+                <button onclick="navigateTo('contact')" class="text-left font-bold text-brand-gold">Contact Us</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow">
+        
+        <!-- HOME PAGE -->
+        <section id="home" class="page-section active fade-in">
+            <!-- Hero -->
+            <div class="relative bg-brand-blue text-white overflow-hidden">
+                <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1565514020176-dbf2277478f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center"></div>
+                <div class="container mx-auto px-4 py-24 lg:py-32 relative z-10 text-center lg:text-left">
+                    <div class="lg:w-2/3">
+                        <h1 class="font-serif text-4xl lg:text-6xl font-bold mb-6 leading-tight">Empowering Your <span class="text-brand-gold">Financial Freedom</span></h1>
+                        <p class="text-lg text-slate-200 mb-8 max-w-2xl">Expert mutual fund distribution and comprehensive wealth planning tailored for the modern Indian investor.</p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                            <button onclick="navigateTo('contact')" class="px-8 py-3 bg-brand-gold text-brand-blue font-bold rounded shadow-lg hover:bg-yellow-500 transition-transform transform hover:-translate-y-1">Start Investing</button>
+                            <button onclick="navigateTo('services')" class="px-8 py-3 bg-transparent border border-white text-white font-semibold rounded hover:bg-white hover:text-brand-blue transition-colors">Our Services</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="bg-white shadow-sm border-b border-gray-100">
+                <div class="container mx-auto px-4 py-8">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-x divide-gray-100">
+                        <div>
+                            <div class="text-3xl font-bold text-brand-blue">500+</div>
+                            <div class="text-sm text-slate-500 uppercase tracking-wide">Families Served</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-brand-blue">₹150 Cr+</div>
+                            <div class="text-sm text-slate-500 uppercase tracking-wide">Assets Managed</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-brand-blue">15+</div>
+                            <div class="text-sm text-slate-500 uppercase tracking-wide">Years Experience</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-brand-blue">Pan-India</div>
+                            <div class="text-sm text-slate-500 uppercase tracking-wide">Client Reach</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Mutual Funds -->
+            <div class="container mx-auto px-4 py-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-serif font-bold text-brand-blue mb-4">Why Mutual Funds?</h2>
+                    <p class="text-slate-600 max-w-2xl mx-auto">Move beyond traditional savings. Let professional management grow your wealth.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+                        <div class="w-12 h-12 bg-blue-50 text-brand-blue rounded-full flex items-center justify-center mb-4"><i class="fas fa-chart-line text-xl"></i></div>
+                        <h3 class="font-bold text-xl mb-2">Beat Inflation</h3>
+                        <p class="text-sm text-slate-600">Traditional FD rates often barely match inflation. Equities have historically provided superior inflation-adjusted returns.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+                        <div class="w-12 h-12 bg-blue-50 text-brand-blue rounded-full flex items-center justify-center mb-4"><i class="fas fa-user-tie text-xl"></i></div>
+                        <h3 class="font-bold text-xl mb-2">Professional Mgmt</h3>
+                        <p class="text-sm text-slate-600">Fund managers with deep market expertise make investment decisions, so you don't have to track the market daily.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+                        <div class="w-12 h-12 bg-blue-50 text-brand-blue rounded-full flex items-center justify-center mb-4"><i class="fas fa-coins text-xl"></i></div>
+                        <h3 class="font-bold text-xl mb-2">Power of Compounding</h3>
+                        <p class="text-sm text-slate-600">Start small with SIPs. The power of compounding works best when you give your investments time to grow.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Insurance Basics -->
+            <div class="bg-slate-50 py-16">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-3xl font-serif font-bold text-brand-blue mb-12 text-center">Insurance Essentials</h2>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-white p-8 rounded border-t-4 border-brand-gold shadow-sm">
+                            <h3 class="font-bold text-lg mb-3">Health Insurance</h3>
+                            <p class="text-slate-600 text-sm">Protect your savings from medical emergencies. Comprehensive coverage for hospitalization and critical illnesses is the foundation of financial planning.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded border-t-4 border-brand-blue shadow-sm">
+                            <h3 class="font-bold text-lg mb-3">Term Insurance</h3>
+                            <p class="text-slate-600 text-sm">Pure life cover to secure your family's future financially in your absence. High coverage at affordable premiums.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded border-t-4 border-slate-500 shadow-sm">
+                            <h3 class="font-bold text-lg mb-3">Accidental Insurance</h3>
+                            <p class="text-slate-600 text-sm">Coverage against disabilities or death due to accidents. An essential supplement to your term and health plans.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Us & Reach -->
+            <div class="container mx-auto px-4 py-16">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-serif font-bold text-brand-blue mb-6">Why Choose a Distributor?</h2>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-brand-gold mt-1 mr-3"></i>
+                                <div>
+                                    <strong class="block text-gray-800">Personalized Guidance</strong>
+                                    <span class="text-sm text-slate-600">Direct funds don't offer advice. We tailor portfolios to your specific life goals.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-brand-gold mt-1 mr-3"></i>
+                                <div>
+                                    <strong class="block text-gray-800">Emotional Discipline</strong>
+                                    <span class="text-sm text-slate-600">We prevent panic selling during market corrections and encourage investing during lows.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-brand-gold mt-1 mr-3"></i>
+                                <div>
+                                    <strong class="block text-gray-800">Comprehensive Review</strong>
+                                    <span class="text-sm text-slate-600">Regular portfolio rebalancing to ensure asset allocation stays aligned with risks.</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-100 rounded-xl p-8 flex flex-col items-center justify-center text-center border-2 border-dashed border-slate-300 min-h-[300px]">
+                        <!-- Placeholder for India Map -->
+                        <i class="fas fa-map-marked-alt text-6xl text-slate-300 mb-4"></i>
+                        <h3 class="text-xl font-bold text-brand-blue">Serving Clients Across India</h3>
+                        <p class="text-slate-500 mt-2 text-sm">Digital onboarding allows us to serve investors from Kashmir to Kanyakumari effortlessly.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="bg-brand-blue py-16 text-white">
+                <div class="container mx-auto px-4 text-center">
+                    <h2 class="text-3xl font-serif font-bold mb-10">Client Stories</h2>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
+                            <p class="italic text-slate-200 mb-4">"Akash has transformed how I look at money. His advice on mutual funds helped me fund my daughter's education stress-free."</p>
+                            <div class="font-bold text-brand-gold">- Rajesh Sharma, Mumbai</div>
+                        </div>
+                        <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
+                            <p class="italic text-slate-200 mb-4">"Trustworthy and transparent. I appreciate the regular updates and the calm approach during market volatility."</p>
+                            <div class="font-bold text-brand-gold">- Priya Patel, Ahmedabad</div>
+                        </div>
+                        <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
+                            <p class="italic text-slate-200 mb-4">"The retirement planning service was excellent. I now have a clear roadmap for my golden years."</p>
+                            <div class="font-bold text-brand-gold">- Col. Singh (Retd), Delhi</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT US PAGE -->
+        <section id="about" class="page-section fade-in">
+            <div class="bg-slate-100 py-12">
+                <div class="container mx-auto px-4">
+                    <h1 class="text-4xl font-serif font-bold text-brand-blue mb-2">About Us</h1>
+                    <p class="text-slate-600">The philosophy behind our practice.</p>
+                </div>
+            </div>
+            <div class="container mx-auto px-4 py-12">
+                <div class="grid md:grid-cols-2 gap-12 mb-16">
+                    <div>
+                        <h2 class="text-2xl font-bold text-brand-blue mb-4">Our Philosophy</h2>
+                        <p class="text-slate-600 mb-6 leading-relaxed">
+                            We believe that wealth creation is boring. It requires patience, discipline, and time. We do not chase the "highest returns" or the "hottest tip." Instead, we focus on risk-adjusted returns that align with your specific financial goals. Our philosophy is rooted in the belief that <span class="font-semibold text-brand-blue">investor behavior matters more than investment performance</span>.
+                        </p>
+                        <h2 class="text-2xl font-bold text-brand-blue mb-4">Our Approach</h2>
+                        <p class="text-slate-600 leading-relaxed">
+                            We follow a goal-based investing approach. Every rupee you invest should have a purpose—be it retirement, education, or a dream home. We map assets to these goals, ensuring liquidity when you need it and growth when you can wait.
+                        </p>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Meeting" class="rounded-lg shadow-lg object-cover h-full w-full">
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 rounded-xl p-8 mb-16">
+                    <h2 class="text-2xl font-bold text-brand-blue mb-4 text-center">Our Experience</h2>
+                    <div class="grid md:grid-cols-3 gap-8 text-center">
+                        <div class="p-4">
+                            <i class="fas fa-history text-3xl text-brand-gold mb-3"></i>
+                            <h3 class="font-bold text-lg">Market Cycles</h3>
+                            <p class="text-sm text-slate-600">Navigated clients through the 2008 crash, 2013 taper tantrum, and 2020 pandemic.</p>
+                        </div>
+                        <div class="p-4">
+                            <i class="fas fa-award text-3xl text-brand-gold mb-3"></i>
+                            <h3 class="font-bold text-lg">Certifications</h3>
+                            <p class="text-sm text-slate-600">NISM Certified Mutual Fund Distributor & Insurance Advisor.</p>
+                        </div>
+                        <div class="p-4">
+                            <i class="fas fa-handshake text-3xl text-brand-gold mb-3"></i>
+                            <h3 class="font-bold text-lg">AMC Relationships</h3>
+                            <p class="text-sm text-slate-600">Empanelled with all top Asset Management Companies in India.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-8 items-center bg-white border border-gray-100 shadow-sm p-8 rounded-xl">
+                    <div class="w-32 h-32 md:w-48 md:h-48 flex-shrink-0 bg-gray-200 rounded-full overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Akash Kothari" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-serif font-bold text-brand-blue">About Akash Kothari</h2>
+                        <p class="text-brand-gold font-medium mb-4">Founder & Chief Financial Guardian</p>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            With over 15 years in the financial services industry, Akash founded this firm with a singular vision: to democratize unbiased financial advice. An MBA in Finance and a lifelong student of the markets, Akash is passionate about financial literacy. When not analyzing fund fact sheets, he enjoys reading about behavioral economics and hiking in the Sahyadris.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES PAGE -->
+        <section id="services" class="page-section fade-in">
+             <div class="relative bg-brand-blue text-white py-16">
+                <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center"></div>
+                <div class="container mx-auto px-4 relative z-10">
+                    <h1 class="text-4xl font-serif font-bold">Our Services</h1>
+                    <p class="mt-2 text-slate-200">Comprehensive solutions for every stage of your financial journey.</p>
+                </div>
+            </div>
+            
+            <div class="container mx-auto px-4 py-12">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-all">
+                        <div class="h-2 bg-brand-gold"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brand-blue mb-3">Mutual Funds</h3>
+                            <p class="text-slate-600 text-sm mb-4">Systematic Investment Plans (SIP), Lumpsum investments across Equity, Debt, and Hybrid categories tailored to your risk profile.</p>
+                            <a href="#" onclick="navigateTo('contact')" class="text-brand-gold font-semibold text-sm group-hover:underline">Enquire Now &rarr;</a>
+                        </div>
+                    </div>
+                     <!-- Card 2 -->
+                    <div class="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-all">
+                        <div class="h-2 bg-brand-blue"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brand-blue mb-3">Portfolio Management (PMS)</h3>
+                            <p class="text-slate-600 text-sm mb-4">For HNI clients seeking concentrated portfolios and direct equity ownership managed by professional fund managers.</p>
+                             <a href="#" onclick="navigateTo('contact')" class="text-brand-gold font-semibold text-sm group-hover:underline">Enquire Now &rarr;</a>
+                        </div>
+                    </div>
+                     <!-- Card 3 -->
+                    <div class="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-all">
+                        <div class="h-2 bg-slate-500"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brand-blue mb-3">Alternative Investment (AIF)</h3>
+                            <p class="text-slate-600 text-sm mb-4">Access to non-traditional asset classes like Private Equity, Pre-IPO funds, and High Yield Debt for sophisticated investors.</p>
+                             <a href="#" onclick="navigateTo('contact')" class="text-brand-gold font-semibold text-sm group-hover:underline">Enquire Now &rarr;</a>
+                        </div>
+                    </div>
+                     <!-- Card 4 -->
+                    <div class="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-all">
+                        <div class="h-2 bg-brand-gold"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brand-blue mb-3">Health Insurance</h3>
+                            <p class="text-slate-600 text-sm mb-4">Comprehensive family floater plans, critical illness covers, and top-up plans to safeguard your health and wealth.</p>
+                             <a href="#" onclick="navigateTo('contact')" class="text-brand-gold font-semibold text-sm group-hover:underline">Enquire Now &rarr;</a>
+                        </div>
+                    </div>
+                     <!-- Card 5 -->
+                    <div class="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-all">
+                        <div class="h-2 bg-brand-blue"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brand-blue mb-3">Term Insurance</h3>
+                            <p class="text-slate-600 text-sm mb-4">Pure protection plans with high coverage at low premiums to ensure your family's financial independence.</p>
+                             <a href="#" onclick="navigateTo('contact')" class="text-brand-gold font-semibold text-sm group-hover:underline">Enquire Now &rarr;</a>
+                        </div>
+                    </div>
+                     <!-- Card 6 -->
+                    <div class="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-all">
+                        <div class="h-2 bg-slate-500"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brand-blue mb-3">Specialised Funds (SIF)</h3>
+                            <p class="text-slate-600 text-sm mb-4">Thematic investments focusing on specific sectors like Pharma, IT, or international markets for tactical allocation.</p>
+                             <a href="#" onclick="navigateTo('contact')" class="text-brand-gold font-semibold text-sm group-hover:underline">Enquire Now &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALCULATORS PAGE -->
+        <section id="calculators" class="page-section fade-in">
+             <div class="bg-slate-100 py-12">
+                <div class="container mx-auto px-4">
+                    <h1 class="text-4xl font-serif font-bold text-brand-blue mb-2">Financial Calculators</h1>
+                    <p class="text-slate-600">Plan your future with numbers.</p>
+                </div>
+            </div>
+            <div class="container mx-auto px-4 py-20 text-center">
+                <div class="max-w-2xl mx-auto bg-white border border-dashed border-gray-300 rounded-xl p-12">
+                    <i class="fas fa-calculator text-6xl text-brand-gold mb-6"></i>
+                    <h2 class="text-2xl font-bold text-brand-blue mb-3">Tools Coming Soon</h2>
+                    <p class="text-slate-500 mb-6">We are currently integrating SIP, Lumpsum, and Retirement calculators to help you plan better. Please check back shortly.</p>
+                    <button onclick="navigateTo('contact')" class="px-6 py-2 bg-brand-blue text-white rounded hover:bg-slate-800">Contact for Custom Planning</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ PAGE -->
+        <section id="faq" class="page-section fade-in">
+            <div class="bg-slate-100 py-12">
+                <div class="container mx-auto px-4">
+                    <h1 class="text-4xl font-serif font-bold text-brand-blue mb-2">Frequently Asked Questions</h1>
+                    <p class="text-slate-600">Common queries from our investors.</p>
+                </div>
+            </div>
+            <div class="container mx-auto px-4 py-12 max-w-3xl">
+                <div class="space-y-4">
+                    <!-- Q1 -->
+                    <details class="group bg-white border border-gray-200 rounded-lg open:shadow-md transition-all">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-brand-blue">
+                            <span>How do I start investing in Mutual Funds?</span>
+                            <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="text-slate-600 px-5 pb-5 text-sm">
+                            Starting is simple. We require your KYC documents (PAN, Aadhaar). Once KYC is done, we can open your account online within 15 minutes and you can start a SIP for as low as ₹500/month.
+                        </div>
+                    </details>
+                    <!-- Q2 -->
+                    <details class="group bg-white border border-gray-200 rounded-lg open:shadow-md transition-all">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-brand-blue">
+                            <span>Is my money safe with a distributor?</span>
+                            <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="text-slate-600 px-5 pb-5 text-sm">
+                            Absolutely. Your money never touches our bank account. It goes directly from your bank account to the Asset Management Company (Mutual Fund House) via the stock exchange payment gateways. We only act as the advisor and facilitator.
+                        </div>
+                    </details>
+                     <!-- Q3 -->
+                    <details class="group bg-white border border-gray-200 rounded-lg open:shadow-md transition-all">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-brand-blue">
+                            <span>What are your charges/fees?</span>
+                            <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="text-slate-600 px-5 pb-5 text-sm">
+                            As a Mutual Fund Distributor, we are compensated by the AMCs through a small commission trail fee. This is disclosed to you transparently. We do not charge you any direct fees for mutual fund investments.
+                        </div>
+                    </details>
+                    <!-- Q4 -->
+                    <details class="group bg-white border border-gray-200 rounded-lg open:shadow-md transition-all">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-brand-blue">
+                            <span>Do you provide online portfolio access?</span>
+                            <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="text-slate-600 px-5 pb-5 text-sm">
+                            Yes, all our clients get access to a mobile app and a web dashboard where you can track your portfolio valuation, view transaction history, and download capital gain statements 24/7.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEWS PAGE -->
+        <section id="news" class="page-section fade-in">
+             <div class="bg-slate-100 py-12">
+                <div class="container mx-auto px-4">
+                    <h1 class="text-4xl font-serif font-bold text-brand-blue mb-2">News & Media</h1>
+                    <p class="text-slate-600">Market updates and insights from Akash Kothari.</p>
+                </div>
+            </div>
+            <div class="container mx-auto px-4 py-12">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Fake Video Item -->
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center text-white">
+                            <i class="fab fa-youtube text-4xl text-red-600"></i>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-brand-blue mb-2">Market Outlook 2024</h3>
+                            <p class="text-sm text-slate-500 mb-4">An in-depth analysis of what to expect in the equity markets this coming year.</p>
+                            <span class="text-xs text-brand-gold uppercase font-bold">Video Update</span>
+                        </div>
+                    </div>
+                    <!-- Fake Blog Item -->
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100">
+                        <div class="h-48 bg-slate-200 flex items-center justify-center text-slate-400">
+                            <i class="fas fa-newspaper text-4xl"></i>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-brand-blue mb-2">Why SIP works in volatile markets</h3>
+                            <p class="text-sm text-slate-500 mb-4">Understanding Rupee Cost Averaging and why you shouldn't stop your SIPs now.</p>
+                            <span class="text-xs text-brand-gold uppercase font-bold">Article</span>
+                        </div>
+                    </div>
+                     <!-- Fake Video Item -->
+                     <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center text-white">
+                            <i class="fab fa-youtube text-4xl text-red-600"></i>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-brand-blue mb-2">Budget 2024 Decoding</h3>
+                            <p class="text-sm text-slate-500 mb-4">How the new tax regime impacts your mutual fund returns.</p>
+                            <span class="text-xs text-brand-gold uppercase font-bold">Video Update</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DISCLOSURE PAGE -->
+        <section id="disclosure" class="page-section fade-in">
+             <div class="bg-slate-100 py-12">
+                <div class="container mx-auto px-4">
+                    <h1 class="text-4xl font-serif font-bold text-brand-blue mb-2">Commission Disclosure</h1>
+                    <p class="text-slate-600">In compliance with SEBI circulars, here is the commission structure for the schemes we distribute.</p>
+                </div>
+            </div>
+            <div class="container mx-auto px-4 py-12">
+                <div class="overflow-x-auto border border-gray-200 rounded-lg">
+                    <table class="min-w-full divide-y divide-gray-200 bg-white text-sm">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fund House (AMC)</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Equity (%)</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Debt (%)</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Hybrid (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 font-medium text-gray-900">HDFC Mutual Fund</td>
+                                <td class="px-6 py-4 text-gray-500">0.80% - 1.20%</td>
+                                <td class="px-6 py-4 text-gray-500">0.10% - 0.50%</td>
+                                <td class="px-6 py-4 text-gray-500">0.60% - 1.00%</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 font-medium text-gray-900">ICICI Prudential MF</td>
+                                <td class="px-6 py-4 text-gray-500">0.85% - 1.15%</td>
+                                <td class="px-6 py-4 text-gray-500">0.10% - 0.60%</td>
+                                <td class="px-6 py-4 text-gray-500">0.65% - 1.05%</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 font-medium text-gray-900">SBI Mutual Fund</td>
+                                <td class="px-6 py-4 text-gray-500">0.75% - 1.10%</td>
+                                <td class="px-6 py-4 text-gray-500">0.05% - 0.50%</td>
+                                <td class="px-6 py-4 text-gray-500">0.60% - 0.90%</td>
+                            </tr>
+                             <tr>
+                                <td class="px-6 py-4 font-medium text-gray-900">Axis Mutual Fund</td>
+                                <td class="px-6 py-4 text-gray-500">0.80% - 1.20%</td>
+                                <td class="px-6 py-4 text-gray-500">0.15% - 0.55%</td>
+                                <td class="px-6 py-4 text-gray-500">0.70% - 1.10%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="mt-4 text-xs text-gray-500 italic">Note: The commission rates mentioned above are on an annualized basis and are subject to change by the AMCs. This is for information purposes only.</p>
+            </div>
+        </section>
+
+        <!-- CONTACT PAGE -->
+        <section id="contact" class="page-section fade-in">
+             <div class="bg-slate-100 py-12">
+                <div class="container mx-auto px-4">
+                    <h1 class="text-4xl font-serif font-bold text-brand-blue mb-2">Contact Us</h1>
+                    <p class="text-slate-600">Get in touch to start your financial journey.</p>
+                </div>
+            </div>
+            <div class="container mx-auto px-4 py-12">
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <!-- Form -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg border-t-4 border-brand-gold">
+                        <h2 class="text-2xl font-bold text-brand-blue mb-6">Send an Enquiry</h2>
+                        <form onsubmit="event.preventDefault(); alert('Thank you for contacting Akash Kothari. We will get back to you shortly.');">
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                                    <input type="text" class="w-full rounded-md border border-gray-300 px-4 py-2 focus:border-brand-gold focus:ring focus:ring-brand-gold focus:ring-opacity-20 outline-none" required>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Mobile</label>
+                                        <input type="tel" class="w-full rounded-md border border-gray-300 px-4 py-2 focus:border-brand-gold focus:ring focus:ring-brand-gold focus:ring-opacity-20 outline-none" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                        <input type="email" class="w-full rounded-md border border-gray-300 px-4 py-2 focus:border-brand-gold focus:ring focus:ring-brand-gold focus:ring-opacity-20 outline-none" required>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Reason for Enquiry</label>
+                                    <select class="w-full rounded-md border border-gray-300 px-4 py-2 focus:border-brand-gold focus:ring focus:ring-brand-gold focus:ring-opacity-20 outline-none">
+                                        <option>Start SIP Investment</option>
+                                        <option>Lumpsum Investment</option>
+                                        <option>Portfolio Review</option>
+                                        <option>Insurance Purchase</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                                    <textarea rows="4" class="w-full rounded-md border border-gray-300 px-4 py-2 focus:border-brand-gold focus:ring focus:ring-brand-gold focus:ring-opacity-20 outline-none"></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-brand-blue text-white font-bold py-3 rounded-md hover:bg-slate-800 transition-colors">Submit Request</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Info & Map -->
+                    <div class="space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-bold text-brand-blue mb-4">Office Details</h2>
+                            <div class="space-y-4 text-slate-600">
+                                <p class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3 text-brand-gold"></i> 123, Financial Plaza, MG Road, <br>Mumbai, Maharashtra 400001</p>
+                                <p class="flex items-center"><i class="fas fa-phone-alt mr-3 text-brand-gold"></i> +91 99999 99999</p>
+                                <p class="flex items-center"><i class="fas fa-envelope mr-3 text-brand-gold"></i> akash@example.com</p>
+                                <p class="flex items-center"><i class="fas fa-clock mr-3 text-brand-gold"></i> Mon - Fri: 10:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Map Placeholder -->
+                        <div class="bg-gray-200 h-64 rounded-lg flex items-center justify-center text-gray-500 shadow-inner">
+                            <div class="text-center">
+                                <i class="fas fa-map-marked-alt text-4xl mb-2"></i>
+                                <p>Google Maps Embed Placeholder</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-blue text-white py-12 border-t border-slate-700 mt-auto">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-2">
+                    <h3 class="font-serif text-2xl font-bold mb-4">Akash Kothari</h3>
+                    <p class="text-slate-400 text-sm max-w-sm mb-4">Helping Indian families achieve financial freedom through disciplined investing and personalized wealth management strategies.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-slate-400 hover:text-white transition"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-white transition"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-white transition"><i class="fab fa-facebook fa-lg"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-brand-gold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li><button onclick="navigateTo('home')" class="hover:text-white">Home</button></li>
+                        <li><button onclick="navigateTo('about')" class="hover:text-white">About Us</button></li>
+                        <li><button onclick="navigateTo('services')" class="hover:text-white">Our Services</button></li>
+                        <li><button onclick="navigateTo('disclosure')" class="hover:text-white">Disclosure</button></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-brand-gold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li><i class="fas fa-phone mr-2"></i> +91 99999 99999</li>
+                        <li><i class="fas fa-envelope mr-2"></i> akash@example.com</li>
+                        <li class="mt-4 text-xs text-slate-500">AMFI Registered Mutual Fund Distributor</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-center text-xs text-slate-500">
+                <p>&copy; 2023 Akash Kothari Financial Services. All Rights Reserved.</p>
+                <p class="mt-2">Mutual Fund investments are subject to market risks, read all scheme related documents carefully.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Simple SPA Logic
+        function navigateTo(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-section');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show target page
+            const target = document.getElementById(pageId);
+            if (target) {
+                target.classList.add('active');
+            }
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+
+            // Update URL hash for better UX (optional)
+            window.location.hash = pageId;
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Handle browser back/forward buttons
+        window.onpopstate = function() {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                navigateTo(hash);
+            } else {
+                navigateTo('home');
+            }
+        };
+
+        // Initial Load
+        document.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                navigateTo(hash);
+            }
+        });
+    </script>
+</body>
+</html>
