@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akash M. Kothari</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- GLOBAL RESETS --- */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            overflow-x: hidden; 
+            color: #333; 
+        }
+
+        /* --- SECTION 1: MAIN BANNER --- */
+        .banner {
+            position: relative;
+            width: 100%;
+            /* UPDATED: Changed from 100vh to 65vh to make it shorter */
+            height: 65vh; 
+            border: 20px solid white; 
+            box-sizing: border-box; 
+            background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=2074&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            /* Flex settings to center and stack content */
+            display: flex;
+            flex-direction: column; 
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px; 
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); 
+        }
+
+        .banner-text {
+            position: relative; 
+            z-index: 10;
+            color: white;
+            font-size: 3.5rem; 
+            font-weight: bold;
+            letter-spacing: 1px;
+            line-height: 1.3;
+            max-width: 1000px;
+        }
+
+        .banner-author {
+            position: relative;
+            z-index: 10;
+            color: #f39c12; /* Brand Orange */
+            font-size: 2rem;
+            margin-top: 20px;
+            font-weight: 500;
+        }
+
+        /* --- SEPARATOR LINE --- */
+        .separator-container {
+            width: 100%;
+            background-color: white;
+            border-left: 20px solid white;
+            border-right: 20px solid white;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        .separator-line {
+            width: 80%;
+            height: 2px;
+            background-color: #d35400; 
+            border: none;
+            opacity: 0.5;
+        }
+
+        /* --- SECTION 2: TYPING EFFECT --- */
+        .typing-section {
+            width: 100%;
+            height: 400px; 
+            background-color: white; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-left: 20px solid white;
+            border-right: 20px solid white;
+            box-sizing: border-box;
+            font-size: 3.5rem; 
+            font-weight: bold;
+        }
+
+        .text-container { display: inline-block; }
+        .static-text { color: #f39c12; }
+        .dynamic-text { 
+            color: #d35400; 
+            border-right: 4px solid #d35400; 
+            padding-right: 5px;
+            animation: blink 0.75s step-end infinite;
+            font-family: monospace; 
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: #d35400 } 
+        }
+
+        /* --- SECTION 3: STATS COUNTER --- */
+        .stats-section {
+            width: 100%;
+            padding: 60px 20px; 
+            background-color: white; 
+            border-left: 20px solid white;
+            border-right: 20px solid white;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            flex-wrap: wrap; 
+            text-align: center;
+        }
+
+        .stat-box {
+            flex: 1;
+            min-width: 200px; 
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: black; 
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #d35400; 
+        }
+        
+        /* --- SECTION 4: WELCOME / FEATURES --- */
+        .welcome-section {
+            width: 100%;
+            padding: 80px 60px; 
+            background-color: white;
+            border-left: 20px solid white;
+            border-right: 20px solid white;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 60px; 
+            justify-content: center;
+            align-items: center; 
+        }
+
+        .welcome-left {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .welcome-left h2 {
+            font-size: 2.5rem;
+            color: #2e305e; 
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .welcome-left p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #555;
+            font-size: 1rem;
+            text-align: justify; 
+        }
+
+        .welcome-right {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            gap: 40px;
+        }
+
+        .feature-item { 
+            flex: 1; 
+            text-align: center; 
+        }
+
+        .feature-icon {
+            font-size: 4rem; 
+            margin-bottom: 20px;
+            color: #2e305e; 
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #d35400; 
+        }
+
+        .feature-item p {
+            line-height: 1.6;
+            color: #666;
+            font-size: 0.95rem;
+            text-align: justify; 
+        }
+
+        /* --- SECTION 5: ABOUT ME --- */
+        .about-section {
+            width: 100%;
+            background-color: white;
+            border-left: 20px solid white;
+            border-right: 20px solid white;
+            border-bottom: 20px solid white;
+            box-sizing: border-box;
+            
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch; 
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            min-height: 600px; 
+            background-image: url('https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+            padding: 60px;
+            background-color: #f9f9f9; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+        }
+
+        .about-content h2 {
+            font-size: 3rem;
+            color: #2e305e; 
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .about-intro {
+            font-size: 0.95rem; 
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        .about-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .about-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.5;
+        }
+
+        .about-list li::before {
+            content: '\f00c'; 
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: #d35400; 
+            font-size: 1.1rem;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            font-weight: bold;
+            color: #2e305e;
+            line-height: 1.6;
+        }
+
+        /* --- SECTION 6: PEACE OF MIND --- */
+        .philosophy-section {
+            width: 100%;
+            padding: 80px 10%; 
+            background-color: white;
+            border-left: 20px solid white;
+            border-right: 20px solid white;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .philosophy-section h2 {
+            font-size: 2.5rem;
+            color: #2e305e;
+            margin-bottom: 40px;
+            font-weight: 700;
+            text-transform: capitalize;
+        }
+
+        .philosophy-content p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #555;
+            margin-bottom: 25px;
+            text-align: justify; 
+        }
+
+        /* --- SECTION 7: OUR PROCESS --- */
+        .process-section {
+            width: 100%;
+            padding: 80px 10%; 
+            background-color: white;
+            border-left: 20px solid white;
+            border-right: 20px solid white;
+            border-bottom: 20px solid white; 
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            text-align: center;
+        }
+
+        .process-section h2 {
+            font-size: 2.5rem;
+            color: #2e305e; 
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .process-intro {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #555;
+            max-width: 800px;
+        }
+
+        .process-list {
+            list-style: none;
+            padding: 0;
+            max-width: 800px;
+            margin: 0 auto;
+            display: inline-block; 
+            text-align: left; 
+        }
+
+        .process-list li {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 15px;
+            padding-left: 40px; 
+            position: relative;
+        }
+
+        .process-list li::before {
+            content: '•'; 
+            color: #d35400; 
+            font-weight: bold;
+            font-size: 2rem;
+            position: absolute;
+            left: 10px; 
+            top: -8px; 
+            line-height: 1;
+        }
+
+        /* --- SECTION 8: SERVICES --- */
+        .services-section {
+            width: 100%;
+            padding: 80px 10%;
+            background-color: white;
+            border-left: 20px solid white;
+            border-right: 20px solid white;
+            border-bottom: 20px solid white;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #2e305e;
+            font-weight: 700;
+            margin-bottom: 60px;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            color: #d35400; 
+            margin-bottom: 40px;
+            margin-top: 40px;
+            font-weight: 600;
+        }
+
+        .service-grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px 40px; 
+            margin-bottom: 60px;
+        }
+
+        .service-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px 40px;
+        }
+
+        .service-card {
+            position: relative;
+            background-color: #f9f9f9;
+            padding: 50px 30px 30px 30px; 
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            margin-top: 30px; 
+        }
+
+        .service-icon-circle {
+            width: 80px;
+            height: 80px;
+            background-color: #2e305e; 
+            border: 6px solid white; 
+            border-radius: 50%;
+            position: absolute;
+            top: -40px; 
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            color: #2e305e;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #666;
+            text-align: justify; 
+        }
+
+        /* --- SECTION 9: CONTACT US --- */
+        .contact-section {
+            width: 100%;
+            padding: 80px 10%;
+            background-color: white;
+            border-left: 20px solid white;
+            border-right: 20px solid white;
+            border-bottom: 20px solid white; 
+            box-sizing: border-box;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .contact-info-box {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info-box h3 {
+            font-size: 1.8rem;
+            color: #2e305e;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .info-item i {
+            color: #d35400; 
+            margin-right: 15px;
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+
+        .quote-box {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-left: 4px solid #d35400;
+            font-style: italic;
+            color: #555;
+        }
+        .quote-box span {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            font-style: normal;
+            color: #2e305e;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 250px;
+            margin-top: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .contact-form-box {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f9f9f9;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        .form-textarea {
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: #2e305e;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #d35400;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .welcome-section { flex-direction: column; padding: 40px; }
+            .welcome-right { flex-direction: column; gap: 30px; }
+            .about-section { flex-direction: column; }
+            .about-image { min-height: 400px; }
+            .about-content { padding: 40px; justify-content: flex-start; }
+            .philosophy-section, .process-section, .services-section, .contact-section { padding: 60px 5%; }
+            .service-grid-2, .service-grid-3 { grid-template-columns: 1fr; gap: 60px; }
+            .contact-container { flex-direction: column; }
+            
+            /* Scale down banner quote on mobile */
+            .banner-text { font-size: 2rem; }
+            .banner-author { font-size: 1.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            .typing-section { font-size: 1.5rem; height: 250px; border-width: 10px; }
+            .stats-section, .welcome-section, .about-section, .philosophy-section, .process-section, .services-section, .contact-section, .separator-container { border-width: 10px; }
+            .stat-number { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="banner">
+        <div class="overlay"></div>
+        <div class="banner-text">"The most important investment you can make is in yourself."</div>
+        <div class="banner-author">- Warren Buffett</div>
+    </div>
+
+    <div class="separator-container">
+        <hr class="separator-line">
+    </div>
+
+    <div class="typing-section" id="typingSection">
+        <div class="text-container">
+            <span class="static-text">Let's discuss about </span>
+            <span class="dynamic-text"></span>
+        </div>
+    </div>
+
+    <div class="separator-container">
+        <hr class="separator-line">
+    </div>
+
+    <div class="stats-section" id="statsSection">
+        <div class="stat-box">
+            <div class="stat-number" data-target="202">0</div>
+            <div class="stat-label">Families Managed</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number" data-target="449">0</div>
+            <div class="stat-label">Happy Clients</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number" data-target="100" data-suffix="+">0</div>
+            <div class="stat-label">Successful Insurance Claims</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number" data-target="1" data-prefix="🏆 #">0</div>
+            <div class="stat-label">Client Happiness Index</div>
+        </div>
+    </div>
+
+    <div class="separator-container">
+        <hr class="separator-line">
+    </div>
+
+    <div class="welcome-section">
+        <div class="welcome-left">
+            <h2>Welcome To My Website</h2>
+            <p>
+                Navigating the financial world can be complex, but you don't have to do it alone. As a dedicated distributor, I specialize in simplifying investment opportunities to help you build a robust portfolio tailored to your unique goals.
+            </p>
+            <p>
+                Whether you are looking to secure your retirement, fund your child's education, or simply grow your wealth over time, consistent and disciplined investing is key. My approach is transparent, data-driven, and focused entirely on your long-term success.
+            </p>
+            <p>
+                I believe in building relationships based on trust and performance. Let's work together to turn your financial aspirations into a concrete reality.
+            </p>
+        </div>
+        <div class="welcome-right">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-sack-dollar"></i>
+                </div>
+                <h3>Means of Living</h3>
+                <p>
+                    Financial freedom isn't just about having money; it's about maintaining your lifestyle without stress. We focus on creating sustainable income streams that support your standard of living today and tomorrow.
+                </p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <h3>Transform Lives</h3>
+                <p>
+                    Strategic planning goes beyond the numbers. By securing your financial future, we help transform the lives of your family, ensuring peace of mind and the freedom to pursue what truly matters.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="separator-container">
+        <hr class="separator-line">
+    </div>
+
+    <div class="about-section">
+        <div class="about-image"></div>
+        <div class="about-content">
+            <h2>Akash M. Kothari</h2>
+            <p class="about-intro">
+                With an experience of 15 years in the field of personal finance, we are proud to guide 162 families in their personal financial journey and look forward to doing the same for you. We further take this opportunity to introduce ourselves to your personal financial world.
+                <br><br>
+                Akash Kothari's sole focus is on helping you to grow, build, and protect your personal wealth to help you realize your goals and dreams. We consider it a privilege to be entrusted with both your ﬁnance and your ﬁnancial dreams.
+            </p>
+            <ul class="about-list">
+                <li>Certified Financial Planner (C.F.P. – December 2009)</li>
+                <li>Bachelor of Commerce (Narsee Monjee College - 2009)</li>
+                <li>Written numerous articles in print and digital media</li>
+                <li>Served as a guest lecturer in MBA colleges for the subject of wealth management and financial planning</li>
+                <li>Taking care of 200+ families finance’s across India and abroad</li>
+            </ul>
+            <div class="contact-info">
+                Mobile: +91 98337 80095 <br>
+                Email: info@akashkothari.com
+            </div>
+        </div>
+    </div>
+
+    <div class="separator-container">
+        <hr class="separator-line">
+    </div>
+
+    <div class="philosophy-section">
+        <h2>Peace of Mind</h2>
+        <div class="philosophy-content">
+            <p>
+                When it comes to your finances, Peace of mind is often the last thing you have. In fact, you may have probably found that as your wealth increases, so does the stress and complexity of managing your wealth.
+            </p>
+            <p>
+                As our client, you are no longer alone to coordinate and integrate all the complex aspects of your financial life. We are there with you in every step on the way. No more wondering who you should call with a particular financial question - we will serve you as your first point of contact for all your financial affairs. Think of it as outsourcing the complexity of your financial life to us. So, you are free to live your life and enjoy the benefits of having wealth and at the same time eliminating the stress of managing your wealth.
+            </p>
+            <p>
+                Our trusted relationship with you begins with a confidential conversation that will lead to a channel of communication. We will analyse your Income, expenses, assets, liabilities and goals. We want a thorough grasp of your individual circumstances, needs and aspirations.
+            </p>
+            <p>
+                Once we have a firm grasp on what you want to accomplish, then we will work towards developing, implementing and monitoring a customized strategy that is appropriate for you.
+            </p>
+        </div>
+    </div>
+
+    <div class="separator-container">
+        <hr class="separator-line">
+    </div>
+
+    <div class="process-section">
+        <h2>Our Process</h2>
+        <div class="process-intro">
+            We will follow a structured process, our approach will be:
+        </div>
+        <ul class="process-list">
+            <li>Analysing your income, expenses, assets & liabilities.</li>
+            <li>Determining your financial goals & ways to achieve them.</li>
+            <li>Discussing your risk appetite and relationship with money.</li>
+            <li>Why, Where & How to invest in which asset class?</li>
+            <li>Assessing how much term & medical insurance cover your family require?</li>
+        </ul>
+    </div>
+
+    <div class="separator-container">
+        <hr class="separator-line">
+    </div>
+
+    <div class="services-section">
+        <h2 class="section-title">Our Services</h2>
+
+        <h3 class="category-title">Investment and Wealth Management</h3>
+        <div class="service-grid-2">
+            <div class="service-card">
+                <div class="service-icon-circle"><i class="fas fa-chart-line"></i></div>
+                <h3>Mutual Funds</h3>
+                <p>Mutual Funds are investment instruments that combine different instruments such as stocks or shares, bonds or both into a single product which is managed by an expert fund manager. This is like pooling your money with many other investors to buy a diversified basket of stocks, bonds, or other assets making it an easy way for individuals to invest in the market.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon-circle"><i class="fas fa-briefcase"></i></div>
+                <h3>Portfolio Management Services (PMS)</h3>
+                <p>PMS is a tailor-made service where a professional manager actively invests your capital in a personalized portfolio of stocks, fixed income, or other securities. It is for individuals who want a highly customized and hands-on approach to managing their wealth.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon-circle"><i class="fas fa-layer-group"></i></div>
+                <h3>Specialised Investment Funds (SIF)</h3>
+                <p>SIF is a new asset class that aims to bridge the gap between MFs and PMS/AIFs, offering a blend of flexibility and unique investment strategies. SIFs offer more flexibility to investment managers as compared to traditional money managers, while still providing a level of regulatory oversight and investor protection.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon-circle"><i class="fas fa-rocket"></i></div>
+                <h3>Alternative Investment Funds (AIF)</h3>
+                <p>AIFs are unique investment vehicles that are privately pooled and invested in alternative asset classes such as venture capital, private equity, hedge funds, commodities, real estate and derivatives. They are typically aimed at sophisticated investors seeking higher potential returns and diversification beyond traditional markets.</p>
+            </div>
+        </div>
+
+        <h3 class="category-title">Insurance and Protection</h3>
+        <div class="service-grid-3">
+            <div class="service-card">
+                <div class="service-icon-circle"><i class="fas fa-heartbeat"></i></div>
+                <h3>Health Insurance</h3>
+                <p>This product helps cover medical expenses like hospitalization, doctor visits, and surgeries, protecting you from high costs if you get sick or have an accident. By paying a regular premium, you secure peace of mind knowing your health care is financially supported.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon-circle"><i class="fas fa-shield-alt"></i></div>
+                <h3>Term Insurance</h3>
+                <p>Term insurance provides financial protection for your family for a specific period of time (the "term"). If the insured person passes away during this term, the family receives a lump sum; if they live past the term, the policy simply ends with no payout.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon-circle"><i class="fas fa-car-crash"></i></div>
+                <h3>Accidental Insurance</h3>
+                <p>This coverage specifically provides a payout or reimbursement if you suffer an injury, disability, or death as a direct result of an accident. It acts as an important financial safety net, supplementing your health or life insurance.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="separator-container">
+        <hr class="separator-line">
+    </div>
+
+    <div class="contact-section">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-container">
+            
+            <div class="contact-info-box">
+                <h3>Akash M. Kothari</h3>
+                
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i> +91 98337 80095
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i> info@akashkothari.com
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    F-11, First Floor, Profit Centre, Boraspada Road, Mahavir Nagar, Kandivali West - 400067
+                </div>
+
+                <div class="quote-box">
+                    "The most important investment you can make is in yourself."
+                    <span>- Warren Buffett</span>
+                </div>
+
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/place/Profit+Centre/@19.214247,72.837832,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b6d204dbc2a3:0x882c520d731e40b!8m2!3d19.214247!4d72.8404069!16s%2Fg%2F11m6_phq2f?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
+                        loading="lazy" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="contact-form-box">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-input" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-input" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-textarea" rows="5" placeholder="Description" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // --- 1. TYPING EFFECT LOGIC ---
+        const textElement = document.querySelector('.dynamic-text');
+        const phrases = ["your future!", "your family!", "your safety!"];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typeSpeed = 100;
+
+        function typeEffect() {
+            const currentPhrase = phrases[phraseIndex];
+            if (isDeleting) {
+                textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+                typeSpeed = 50; 
+            } else {
+                textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+                typeSpeed = 100; 
+            }
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                typeSpeed = 2000; 
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length; 
+                typeSpeed = 500; 
+            }
+            setTimeout(typeEffect, typeSpeed);
+        }
+
+        // --- 2. STATS COUNTER LOGIC ---
+        const counters = document.querySelectorAll('.stat-number');
+        const speed = 250; 
+
+        function startCounters() {
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const prefix = counter.getAttribute('data-prefix') || "";
+                    const suffix = counter.getAttribute('data-suffix') || "";
+                    const count = +counter.innerText.replace(/\D/g, ''); 
+                    const inc = target / speed;
+                    if (count < target) {
+                        counter.innerText = prefix + Math.ceil(count + inc) + suffix;
+                        setTimeout(updateCount, 25); 
+                    } else {
+                        counter.innerText = prefix + target + suffix;
+                    }
+                };
+                updateCount();
+            });
+        }
+
+        // --- 3. SCROLL OBSERVER ---
+        const observerOptions = { threshold: 0.5 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.id === 'typingSection') {
+                        if (!entry.target.dataset.started) {
+                            entry.target.dataset.started = true;
+                            typeEffect(); 
+                        }
+                    }
+                    if (entry.target.id === 'statsSection') {
+                        if (!entry.target.dataset.started) {
+                            entry.target.dataset.started = true;
+                            startCounters();
+                        }
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const typingSec = document.getElementById('typingSection');
+            const statsSec = document.getElementById('statsSection');
+            if(typingSec) observer.observe(typingSec);
+            if(statsSec) observer.observe(statsSec);
+        });
+    </script>
+</body>
+</html>
